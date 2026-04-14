@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@layer base {
+  :root {
+    /* Fundo da página - #121826 */
+    --background: 220 25% 10%;
+    /* Texto principal - #E8EBF0 */
+    --foreground: 210 20% 92%;
+
+    /* Cards/Containers - #1A2030 */
+    --card: 220 22% 14%;
+    --card-foreground: 210 20% 92%;
+    --card-elevated: 220 20% 18%;
+
+    --popover: 220 25% 10%;
+    --popover-foreground: 210 20% 92%;
+
+    /* Azul primário - #2A8BD6 */
+    --primary: 210 70% 50%;
+    --primary-foreground: 210 20% 92%;
+
+    --secondary: 220 20% 16%;
+    --secondary-foreground: 210 20% 92%;
+
+    --muted: 220 20% 16%;
+    /* Texto secundário - #7A8599 */
+    --muted-foreground: 215 15% 55%;
+
+    --accent: 220 20% 16%;
+    --accent-foreground: 210 20% 92%;
+
+    /* Vermelho erro - #DC2626 */
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 210 20% 92%;
+
+    /* Verde sucesso - #2A9966 */
+    --success: 152 60% 42%;
+    --success-foreground: 0 0% 100%;
+
+    /* Laranja aviso - #F59E0B */
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 0%;
+
+    /* Azul info - #2A8BD6 (igual primary) */
+    --info: 210 70% 50%;
+    --info-foreground: 0 0% 100%;
+
+    /* Bordas sutis - #2A3447 */
+    --border: 220 18% 22%;
+    --input: 220 18% 22%;
+    --ring: 210 70% 50%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 220 25% 10%;
+    --sidebar-foreground: 210 20% 92%;
+    --sidebar-primary: 210 70% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 20% 16%;
+    --sidebar-accent-foreground: 210 20% 92%;
+    --sidebar-border: 220 18% 22%;
+    --sidebar-ring: 210 70% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer utilities {
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .glass-card {
+    @apply bg-card rounded-xl shadow-lg backdrop-blur-sm;
+  }
+
+  .status-pulse {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 4px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: hsl(var(--card));
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 2px;
+  }
+}
